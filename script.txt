@@ -1,0 +1,57 @@
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Set the default tab to open
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementsByClassName("tablink")[0].click();
+});
+
+// Initialize the maps with Leaflet
+function initMap() {
+    var mapOptions = {
+        center: [13.5, -85.0],
+        zoom: 8
+    };
+    var mapRegional = L.map('mapRegional').setView(mapOptions.center, mapOptions.zoom);
+    var mapTerritorial1 = L.map('mapTerritorial1').setView(mapOptions.center, mapOptions.zoom);
+    var mapTerritorial2 = L.map('mapTerritorial2').setView(mapOptions.center, mapOptions.zoom);
+    var mapTerritorial3 = L.map('mapTerritorial3').setView(mapOptions.center, mapOptions.zoom);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapRegional);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapTerritorial1);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapTerritorial2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapTerritorial3);
+
+    // Example of adding a shapefile
+    var shpfile = new L.Shapefile('path/to/your/shapefile.zip', {
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.name);
+        }
+    });
+    shpfile.addTo(mapTerritorial1); // Add to the desired map
+}
+
+// Load the script to initialize the maps
+window.onload = initMap;

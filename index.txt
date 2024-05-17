@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alto Wangki y Bokayen - Nicaragua</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Alto Wangki y Bokayen - Nicaragua</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#regional" class="tablink" onclick="openTab(event, 'regional')">Regional</a></li>
+            <li><a href="#territorial1" class="tablink" onclick="openTab(event, 'territorial1')">Territorial 1</a></li>
+            <li><a href="#territorial2" class="tablink" onclick="openTab(event, 'territorial2')">Territorial 2</a></li>
+            <li><a href="#territorial3" class="tablink" onclick="openTab(event, 'territorial3')">Territorial 3</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="regional" class="tabcontent">
+            <h2>Región Alto Wangki y Bokayen</h2>
+            <div id="mapRegional" class="map"></div>
+        </section>
+        <section id="territorial1" class="tabcontent">
+            <h2>Territorial 1</h2>
+            <div id="mapTerritorial1" class="map"></div>
+        </section>
+        <section id="territorial2" class="tabcontent">
+            <h2>Territorial 2</h2>
+            <div id="mapTerritorial2" class="map"></div>
+        </section>
+        <section id="territorial3" class="tabcontent">
+            <h2>Territorial 3</h2>
+            <div id="mapTerritorial3" class="map"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
